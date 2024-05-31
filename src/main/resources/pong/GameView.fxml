@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pong.GameController">
+    <center>
+        <Pane BorderPane.alignment="CENTER">
+            <children>
+                <Canvas fx:id="canvas" height="400.0" width="800.0" />
+                <BorderPane prefHeight="400.0" prefWidth="800.0">
+                    <bottom>
+                        <SplitPane dividerPositions="0.3, 0.7" scaleZ="0.5" BorderPane.alignment="CENTER">
+                            <items>
+                                <HBox>
+                                    <children>
+                                        <Button fx:id="leftUpButton" mnemonicParsing="false" onAction="#leftBatUp" text="Up" />
+                                        <Button fx:id="leftDownButton" mnemonicParsing="false" onAction="#leftBatDown" text="Down" />
+                                        <TextField fx:id="leftPlayerNameField" promptText="player1 name" text="Player1" />
+                                    </children>
+                                </HBox>
+                                <Button mnemonicParsing="false" onAction="#resetGame" text="Start" />
+                                <HBox prefWidth="263.0">
+                                    <children>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <TextField fx:id="rightPlayerNameField" promptText="player2 name" text="Player2" />
+                                        <Button fx:id="rightUpButton" mnemonicParsing="false" onAction="#rightBatUp" text="Up" />
+                                        <Button fx:id="rightDownButton" mnemonicParsing="false" onAction="#rightBatDown" text="Down" />
+                                    </children>
+                                </HBox>
+                            </items>
+                            <cursor>
+                                <Cursor fx:constant="DISAPPEAR" />
+                            </cursor>
+                        </SplitPane>
+                    </bottom>
+                    <center>
+                        <Text fx:id="middleText" fill="#c2fff4" smooth="false" stroke="#00ff0d" strokeMiterLimit="2.0" strokeType="OUTSIDE" strokeWidth="2.0" text="Player1 Wins!" visible="false" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                    </center>
+                </BorderPane>
+            </children>
+        </Pane>
+    </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+              <VBox prefWidth="100.0">
+                  <children>
+                      <Button fx:id="highScoresBtn" mnemonicParsing="false" onAction="#highScore" prefHeight="25.0" prefWidth="108.0" text="High scores" />
+                      <Button fx:id="saveScoreBtn" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="113.0" text="Save Score" />
+                      <Button fx:id="loadScoreBtn" mnemonicParsing="false" onAction="#load" prefHeight="25.0" prefWidth="118.0" text="Load Score" />
+                  </children>
+              </VBox>
+              <ListView fx:id="highScores" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
